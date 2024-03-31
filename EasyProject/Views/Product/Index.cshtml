@@ -1,0 +1,26 @@
+﻿@model List<EasyProject.Models.Product>
+@{
+	ViewData["Title"] = "ProductIndex";
+}
+
+<div class="container">
+	<div class action="row">
+		@foreach(var item in Model)
+		{
+			<div class="col-6">
+				<div class="d-lex justify-content-center">
+					<h4>@item.Name</h4>
+				</div>
+				<div class="d-lex justify-content-center">
+					<img src="@item.ImageUrl" style="widht: 70%"/>
+				</div>
+				<div class="d-lex justify-content-center">
+					@item.Price.ToString("N2") $
+				</div>
+				<div class="d-lex justify-content-center">
+					<a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">View Product</a>
+				</div>
+			</div>
+		}
+	</div>
+</div>
